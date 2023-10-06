@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgres://jonatanba2002:Hg2U0RtmdOvC@ep-sweet-morning-64540845.us-east-2.aws.neon.tech/neondb?schema=public"
+  url      = "postgres://bgds.territorial:uIdj13sHBKGn@ep-delicate-rain-21595690.us-east-2.aws.neon.tech/neondb?schema=public"
 }
 
 model Tipo_curso {
