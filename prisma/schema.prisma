@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgres://jonatanba2002:Hg2U0RtmdOvC@ep-sweet-morning-64540845.us-east-2.aws.neon.tech/neondb?schema=public"
+}
+
+model Tipo_curso {
+  ID_TIPO_CURSO     Int     @id @default(autoincrement())
+  NOMBRE_TIPO_CURSO String
+  Cursos            Curso[]
+}
+
+model Profesor {
+  ID_PROFESOR       Int     @id @default(autoincrement())
+  NOMBRE_PROFESOR   String
+  APELLIDO_PROFESOR String
+  CEDULA_PROFESOR   String
+  CELULAR_PROFESOR  String
+  CORREO_PROFESOR   String
+  Cursos            Curso[]
+}
+
+model Nivel_curso {
+  ID_NIVEL_CURSO Int     @id @default(autoincrement())
+  NIVEL_CURSO    Int
+  Cursos         Curso[]
+}
+
+model Curso {
+  ID_CURSO     Int         @id @default(autoincrement())
+  NIVEL        Int
+  PROFESOR     Int
+  TIPO         Int
+  NOMBRE_CURSO String
+  Tipo_curso   Tipo_curso  @relation(fields: [TIPO], references: [ID_TIPO_CURSO])
+  Profesor     Profesor    @relation(fields: [PROFESOR], references: [ID_PROFESOR])
+  Nivel_curso  Nivel_curso @relation(fields: [NIVEL], references: [ID_NIVEL_CURSO])
+}
